@@ -2,122 +2,166 @@
 add comments 
  */
 
-public class Shoe implements ShoePlan {
+public class Shoe {
 
-    private String shoeColor1;
-    private String shoeColor2;
-    private String shoeColor3;
-    private String shoeMaterial;
-    private String shoeBrand;
-    private String shoeFacts;
-    private String shoeType;
-    private int shoeYearReleased;
-    private int shoeRetroed;
-    private int shoeMySize;
+    private final String modelName;
+    private final String color1;
+    private final String color2;
+    private final String color3;
+    private final String material;
+    private final String brand;
+    private final String type;
+    private final String facts;
+    private final int releaseYear;
+    private final int retroYear;
 
 
-    @Override
-    public void setShoeColor1(String color1) {
+    private Shoe(Builder builder){
 
-        shoeColor1= color1;
+        this.modelName = builder.modelName;
+        this.color1 = builder.color1;
+        this.color2 = builder.color2;
+        this.color3 = builder.color3;
+        this.material = builder.material;
+        this.brand = builder.brand;
+        this.type  = builder.type;
+        this.facts = builder.facts;
+        this.releaseYear = builder.releaseYear;
+        this.retroYear = builder.retroYear;
     }
 
-    public String getShoeColor1() {
-        return shoeColor1;
+    public String getModelName(){
+        return modelName;
     }
 
-    @Override
-    public void setShoeColor2(String color2) {
-
-        shoeColor2 = color2;
-
+    public String getColor1() {
+        return color1;
     }
 
-    public String getShoeColor2() {
-        return shoeColor2;
+    public String getColor2() {
+        return color2;
     }
 
-    @Override
-    public void setShoeMaterial(String material) {
-
-        shoeMaterial = material;
-
+    public String getColor3() {
+        return color3;
     }
 
-    public void setShoeColor3(String Color3) {
-
-        shoeColor3 = Color3;
+    public String getMaterial() {
+        return material;
     }
 
-    public String getShoeColor3() { return shoeColor3; }
-
-    public String getShoeMaterial() {
-        return shoeMaterial;
+    public String getBrand() {
+        return brand;
     }
 
-    @Override
-    public void setShoeBrand(String brand) {
-
-        shoeBrand = brand;
-
+    public String getType() {
+        return type;
     }
 
-    public String getShoeBrand() {
-        return shoeBrand;
+    public String getFacts() {
+        return facts;
     }
 
-    @Override
-    public void setShoeFacts(String facts) {
-
-        shoeFacts = facts;
-
+    public int getReleaseYear() {
+        return releaseYear;
     }
 
-    public String getShoeFacts() {
-        return shoeFacts;
+    public int getRetroYear() {
+        return retroYear;
     }
 
-    @Override
-    public void setShoeType(String type) {
+    public static class Builder{
 
-        shoeType = type;
+        private String modelName;
+        private String color1;
+        private String color2;
+        private String color3;
+        private String material;
+        private String brand;
+        private String type;
+        private String facts;
+        private int releaseYear;
+        private int retroYear;
 
-    }
+        public Builder modelName(final String modelName){
 
-    public String getShoeType() {
-        return shoeType;
-    }
+            this.modelName = modelName;
+            return this;
+        }
 
-    @Override
-    public void setShoeYearReleased(int yearReleased) {
+        public Builder color1(final String color1){
 
-        shoeYearReleased = yearReleased;
+            this.color1 = color1;
+            return this;
+        }
 
-    }
+        public Builder color2(final String color2){
 
-    public int getShoeYearReleased() {
-        return shoeYearReleased;
-    }
+            this.color2 = color2;
+            return this;
+        }
 
-    @Override
-    public void setShoeYearRetroed(int yearRetroed) {
+        public Builder color3(final String color3){
 
-        shoeRetroed = yearRetroed;
+            this.color3 = color3;
+            return this;
+            /*returns none if no value is entered for color 3
+            if (this.color3 == null){
+                System.out.print("None");
+            } else {
+                System.out.print(this.color3);
+            }
+             */
+        }
 
-    }
+        public Builder material(final String material){
 
-    public int getShoeRetroed() {
-        return shoeRetroed;
-    }
+            this.material = material;
+            return this;
+        }
 
-    @Override
-    public void setShoeMySize(int mySize) {
+        public Builder brand(final String brand){
 
-        shoeMySize = mySize;
+            this.brand = brand;
+            return this;
+        }
 
-    }
+        public Builder type(final String type){
 
-    public int getShoeMySize() {
-        return shoeMySize;
+            this.type = type;
+            return this;
+        }
+
+        public Builder facts(final String facts){
+
+            this.facts = facts;
+            return this;
+        }
+
+        public Builder releaseYear(final int releaseYear){
+
+            this.releaseYear = releaseYear;
+            return this;
+        }
+
+        public Builder retroYear(final int retroYear){
+
+            this.retroYear = retroYear;
+            return this;
+        }
+
+        public String toString(){
+
+            return "Model Name: " + this.modelName + "\nColor 1: " + this.color1 +
+                    "\nColor 2: " + this.color2 + "\nColor 3: " + this.color3 + "\nBrand: " + this.brand + "\nMaterial: " + this.material +
+                    "\nType: " + this.type + "\nRelease Year " + this.releaseYear +
+                    "\nRetro Year: " + this.retroYear + "\nShoe Facts: " + this.facts;
+        }
+
+        public Shoe build(){
+
+            return new Shoe(this);
+        }
+
     }
 }
