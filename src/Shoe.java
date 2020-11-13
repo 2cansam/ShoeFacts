@@ -105,13 +105,7 @@ public class Shoe {
 
             this.color3 = color3;
             return this;
-            /*returns none if no value is entered for color 3
-            if (this.color3 == null){
-                System.out.print("None");
-            } else {
-                System.out.print(this.color3);
-            }
-             */
+
         }
 
         public Builder material(final String material){
@@ -155,7 +149,7 @@ public class Shoe {
             return "Model Name: " + this.modelName + "\nColor 1: " + this.color1 +
                     "\nColor 2: " + this.color2 + "\nColor 3: " + this.color3 + "\nBrand: " + this.brand + "\nMaterial: " + this.material +
                     "\nType: " + this.type + "\nRelease Year " + this.releaseYear +
-                    "\nRetro Year: " + this.retroYear + "\nShoe Facts: " + this.facts;
+                    "\nRetro Year: " + this.retroYear + "\nFacts: " + this.facts;
         }
 
         public Shoe build(){
